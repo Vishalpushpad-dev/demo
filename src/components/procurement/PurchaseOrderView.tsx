@@ -224,7 +224,7 @@ export const PurchaseOrderView: React.FC<POViewProps> = ({
   const canApprove = ['Purchase Manager', 'Finance/Admin', 'System Administrator'].includes(currentRole);
 
   return (
-    <div className="p-6 space-y-4 max-w-7xl mx-auto">
+    <div className="p-6 space-y-4">
       {/* Visual Pipeline Banner: PO -> GRN -> Stock */}
       <div className="bg-gradient-to-r from-blue-900 to-indigo-950 rounded-lg p-3.5 text-white flex flex-col md:flex-row md:items-center justify-between gap-3 shadow-xs">
         <div>

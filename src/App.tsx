@@ -255,7 +255,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-slate-100 text-slate-900">
+    <div className="app-shell flex h-screen w-screen overflow-hidden text-slate-900">
       <Sidebar
         activeSection={activeSection}
         onNavigate={handleNavigate}

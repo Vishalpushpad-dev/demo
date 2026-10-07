@@ -56,11 +56,11 @@ export const Header: React.FC<HeaderProps> = ({
   onSearchChange,
 }) => {
   return (
-    <header className="h-14 bg-white border-b border-slate-200 px-4 flex items-center justify-between gap-3 sticky top-0 z-30">
+    <header className="h-14 bg-white/80 backdrop-blur-xl border-b border-slate-200/80 px-4 flex items-center justify-between gap-3 sticky top-0 z-30">
       {/* Zone 1: Breadcrumbs & Section Title */}
       <div className="flex items-center gap-2 text-xs text-slate-500 shrink-0">
-        <span className="font-semibold text-slate-900 tracking-tight flex items-center gap-1.5 text-sm">
-          <span className="w-2 h-2 rounded-sm bg-blue-600 inline-block"></span>
+        <span className="font-display font-bold text-slate-900 tracking-tight flex items-center gap-1.5 text-sm">
+          <span className="w-2.5 h-2.5 rounded-sm bg-gradient-to-br from-blue-500 to-indigo-700 inline-block shadow-sm shadow-blue-500/40"></span>
           Apex ERP
         </span>
         <span className="text-slate-300">/</span>

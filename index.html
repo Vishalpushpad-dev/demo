@@ -4,9 +4,182 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apex Enterprise — Inventory & SCM Suite</title>
+
+    <!-- Typography: Bricolage Grotesque (display) · Figtree (UI) · JetBrains Mono (data) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Figtree', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              display: ['"Bricolage Grotesque"', 'Figtree', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+            },
+            // Reskin the dominant accent from generic blue -> a premium "iris" indigo
+            colors: {
+              blue: {
+                50: '#f1f1fe',
+                100: '#e5e4fc',
+                200: '#cfcdf9',
+                300: '#b1aef4',
+                400: '#8d87ee',
+                500: '#7069e6',
+                600: '#5b4fd8',
+                700: '#4c40bd',
+                800: '#3f3799',
+                900: '#37347a',
+                950: '#221f4a',
+              },
+              indigo: {
+                50: '#eff0fe',
+                100: '#e2e3fd',
+                200: '#cacbfb',
+                300: '#a7a6f6',
+                400: '#8781ef',
+                500: '#6f63e6',
+                600: '#5b49d6',
+                700: '#4c3bbb',
+                800: '#3f3397',
+                900: '#352f78',
+                950: '#211d47',
+              },
+            },
+            borderRadius: {
+              DEFAULT: '0.5rem',
+              md: '0.625rem',
+              lg: '0.75rem',
+              xl: '1rem',
+              '2xl': '1.25rem',
+            },
+            boxShadow: {
+              sm: '0 1px 2px 0 rgb(15 23 42 / 0.04), 0 1px 3px 0 rgb(15 23 42 / 0.05)',
+              DEFAULT: '0 1px 3px 0 rgb(15 23 42 / 0.07), 0 1px 2px -1px rgb(15 23 42 / 0.05)',
+              md: '0 6px 16px -4px rgb(15 23 42 / 0.09), 0 2px 6px -2px rgb(15 23 42 / 0.05)',
+              lg: '0 14px 32px -8px rgb(15 23 42 / 0.13), 0 4px 10px -4px rgb(15 23 42 / 0.06)',
+              xl: '0 28px 56px -14px rgb(15 23 42 / 0.2)',
+            },
+            keyframes: {
+              appFade: {
+                '0%': { opacity: '0', transform: 'translateY(8px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            },
+            animation: {
+              appFade: 'appFade 0.45s cubic-bezier(0.22, 1, 0.36, 1) both',
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      html,
+      body {
+        font-family: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+      }
+
+      ::selection {
+        background: #5b4fd8;
+        color: #fff;
+      }
+
+      /* Large text / KPI numbers / headings adopt the display grotesque app-wide */
+      .text-xl,
+      .text-2xl,
+      .text-3xl,
+      .text-4xl,
+      .text-5xl {
+        font-family: 'Bricolage Grotesque', 'Figtree', sans-serif;
+        letter-spacing: -0.02em;
+      }
+
+      /* Refined, quiet scrollbars */
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #c3cad9 transparent;
+      }
+      *::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      *::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      *::-webkit-scrollbar-thumb {
+        background: #c3cad9;
+        border-radius: 999px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+      }
+      *::-webkit-scrollbar-thumb:hover {
+        background: #9aa6bd;
+        background-clip: content-box;
+      }
+      /* Dark sidebar gets a matching dark scrollbar */
+      aside *::-webkit-scrollbar-thumb {
+        background: #334155;
+        background-clip: content-box;
+      }
+
+      /* Atmospheric app background: layered iris + teal mesh */
+      .app-shell {
+        background-color: #eceef4;
+        background-image:
+          radial-gradient(1100px 620px at 100% -8%, rgba(91, 79, 216, 0.1), transparent 60%),
+          radial-gradient(880px 520px at -6% 108%, rgba(45, 212, 191, 0.08), transparent 55%),
+          radial-gradient(720px 420px at 55% 45%, rgba(111, 99, 230, 0.045), transparent 62%);
+      }
+
+      /* Fine grain overlay for texture/depth */
+      .app-shell::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 50;
+        opacity: 0.025;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      /* Deepen the sidebar with a subtle vertical gradient */
+      aside {
+        background-image: linear-gradient(180deg, #0c1322 0%, #0f172a 55%, #101a2e 100%);
+      }
+
+      /* Staggered content reveal when switching sections */
+      main > * {
+        animation: appFade 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      /* Premium focus treatment */
+      :focus-visible {
+        outline: 2px solid #5b4fd8;
+        outline-offset: 2px;
+        border-radius: 5px;
+      }
+
+      /* Tabular figures for data-heavy numbers */
+      .font-mono,
+      table {
+        font-variant-numeric: tabular-nums;
+      }
+    </style>
   </head>
-  <body class="bg-slate-100">
+  <body class="app-shell">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

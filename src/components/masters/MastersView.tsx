@@ -220,7 +220,7 @@ export const MastersView: React.FC<MastersViewProps> = ({
   );
 
   return (
-    <div className="p-6 space-y-5 max-w-7xl mx-auto">
+    <div className="p-6 space-y-5">
       {/* Sub-tab Navigation */}
       <div className="flex items-center justify-between border-b border-slate-200 pb-2">
         <div className="flex items-center gap-1 overflow-x-auto text-xs font-medium">

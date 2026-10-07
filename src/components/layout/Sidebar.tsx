@@ -234,13 +234,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Brand & Suite Header */}
       <div className="h-14 px-4 flex items-center justify-between border-b border-slate-800 bg-slate-950/60">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white shadow-sm font-bold text-sm tracking-tighter">
-            APX
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-700 flex items-center justify-center text-white font-display font-extrabold text-[13px] tracking-tighter ring-1 ring-white/10 shadow-lg shadow-blue-900/40">
+            AX
           </div>
           <div>
-            <div className="text-sm font-bold text-white tracking-tight leading-none">Apex Enterprise</div>
-            <div className="text-[10px] text-slate-400 font-medium tracking-wider uppercase mt-1">
-              Inventory & SCM Suite
+            <div className="font-display text-[15px] font-bold text-white tracking-tight leading-none">Apex Enterprise</div>
+            <div className="text-[9.5px] text-slate-400 font-semibold tracking-[0.18em] uppercase mt-1.5">
+              Inventory &middot; SCM Suite
             </div>
           </div>
         </div>

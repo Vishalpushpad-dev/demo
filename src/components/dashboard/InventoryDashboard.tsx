@@ -146,7 +146,7 @@ export const InventoryDashboard: React.FC<DashboardProps> = ({
   }
 
   return (
-    <div className="p-6 space-y-6 max-w-7xl mx-auto">
+    <div className="p-6 space-y-6">
       {/* Top Filter & Toolbar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-3 rounded-lg border border-slate-200 shadow-xs">
         <div className="flex flex-wrap items-center gap-2">

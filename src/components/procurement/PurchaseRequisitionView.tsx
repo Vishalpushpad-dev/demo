@@ -200,7 +200,7 @@ export const PurchaseRequisitionView: React.FC<PRViewProps> = ({
   });
 
   return (
-    <div className="p-6 space-y-4 max-w-7xl mx-auto">
+    <div className="p-6 space-y-4">
       {/* Action Toolbar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-3 rounded-lg border border-slate-200 shadow-xs">
         <div className="flex flex-wrap items-center gap-2 flex-1">
